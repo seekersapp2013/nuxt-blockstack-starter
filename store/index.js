@@ -18,8 +18,8 @@ export const mutations = {
   },
 
   SAVE_DATA_TO_GAIA(state, data) {
-    let data = state.appData;
-    state.userSession.putFile(STORAGE_FILE, JSON.stringify(data))
+    let gaiaData = state.appData;
+    state.userSession.putFile(STORAGE_FILE, JSON.stringify(gaiaData))
   },
 
   LOAD_WORKSPACE(state, blockstackData) {
