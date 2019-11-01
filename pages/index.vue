@@ -1,30 +1,34 @@
 <template>
   <div class="container">
-    <a href="#" @click="signIn">Login with blockstack</a>
+    <a href="#" @click.prevent="signIn">Login with blockstack</a>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
+import * as blockstack from "blockstack";
+import { mapGetters, mapState } from "vuex";
 export default {
   name: "landing",
+  data: () => {
+    return {
+      blockstack: blockstack
+    };
+  },
   beforeMount() {
-    if (this.loggedUser.isUserSignedIn()) {
+    if (this.blockstack.isUserSignedIn()) {
       this.redirectLoggedInUser();
-    } else if (this.loggedUser.isSignInPending()) {
-      this.loggedUser.handlePendingSignIn().then(userData => {
+    } else if (blockstack.isSignInPending()) {
+      blockstack.handlePendingSignIn().then(userData => {
         this.redirectLoggedInUser();
       });
     }
   },
-  computed: mapGetters(["isAuthenticated", "loggedUser"]),
   methods: {
     signIn() {
-      this.loggedUser.redirectToSignIn();
+      this.blockstack.redirectToSignIn();
     },
     redirectLoggedInUser() {
-      window.location = `/home`;
+      window.location = `/app`;
     }
   }
 };

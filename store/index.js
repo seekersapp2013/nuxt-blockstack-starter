@@ -1,11 +1,13 @@
 // @prefix statetemplate
-// @description 
+// Base state-management for the whole application
 
-import axios from 'axios';
+import * as blockstack from 'blockstack'
+
 var STORAGE_FILE = 'blockstack-data.json';
 
 //state
 export const state = () => ({
+  blockstack: blockstack,
   userSession: null,
   appData: [],
 });
@@ -14,7 +16,7 @@ export const state = () => ({
 export const mutations = {
 
   SET_USER(state, userSession) {
-    state.userSession = userSession || null
+    state.userSession = userSession
   },
 
   SAVE_DATA_TO_GAIA(state, data) {
@@ -66,6 +68,5 @@ export const actions = {
 
 // getters
 export const getters = {
-  isAuthenticated: state => !!state.userSession,
   loggedUser: state => state.userSession,
 }

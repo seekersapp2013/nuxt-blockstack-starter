@@ -2428,7 +2428,7 @@ bitcoinjs-lib@^5.1.2:
     varuint-bitcoin "^1.0.4"
     wif "^2.0.1"
 
-blockstack@^19.3.0:
+blockstack@19.3.0:
   version "19.3.0"
   resolved "https://registry.yarnpkg.com/blockstack/-/blockstack-19.3.0.tgz#19b3deefcb5555b65f55302326646db42b13e4a8"
   integrity sha512-P/HRS5n+buTeIssxs1v479EpDZOFGpfiivRrv9UjbHj/FdSJLxC1onVD8Hiyfm0mB8y7Ah9qT2lGqKX9P6r7+g==

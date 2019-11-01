@@ -1,18 +1,12 @@
 {
-  "manifest_version": 2,
-  "name": "nuxt-blockstack-starter",
-  "version": "1.0",
-  "description": "Blockstack starter using nuxt",
-  "short_name": "nuxt-blockstack-starter",
+  "name": "Starter App",
+  "start_url": "http://localhost:3000",
+  "description": "A simple nuxt-starter app build on blockstack",
   "icons": [
     {
-      "src": "https://getatomichabits.com/images/app-blockstack.png",
-      "sizes": "192x192",
+      "src": "https://nuxtjs.org/logos/nuxt-emoji@2x.png",
+      "sizes": "400x400",
       "type": "image/png"
     }
-  ],
-  "start_url": "https://getatomichabits.com/?source=pwa",
-  "background_color": "#3367D6",
-  "display": "standalone",
-  "theme_color": "#3367D6"
+  ]
 }

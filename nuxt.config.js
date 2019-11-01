@@ -42,9 +42,6 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
   ],
-  router: {
-    middleware: ['check-auth']
-  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options

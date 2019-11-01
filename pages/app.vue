@@ -7,23 +7,26 @@
 </template>
 
 <script>
+import * as blockstack from "blockstack";
 import { mapGetters } from "vuex";
 
 export default {
   name: "app-page",
+  data: () => {
+    return {
+      blockstack: blockstack
+    };
+  },
   beforeMount() {
-    if (!this.loggedUser.isUserSignedIn()) {
+    if (!this.blockstack.isUserSignedIn()) {
       this.redirectUserToLandingPage();
     }
-    this.userData = this.loggedUser.loadUserData();
-    this.user = new Person(this.userData.profile);
+    this.userData = this.blockstack.loadUserData();
+    this.user = new this.blockstack.Person(this.userData.profile);
     this.username = this.userData.username;
-    if (this.$store.state.habits.length === 0) {
+    if (this.$store.state.appData.length === 0) {
       this.$store.dispatch("loadDataFromGaia");
     }
-  },
-  computed: {
-    ...mapGetters(["isAuthenticated", "loggedUser"])
   },
   methods: {
     signOut() {
