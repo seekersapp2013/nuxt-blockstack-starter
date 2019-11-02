@@ -2,7 +2,7 @@
   <div>
     <h1>Logged in and inside the app!!</h1>
     <h2>Expand your app from here, using sub-components</h2>
-    <h3></h3>
+    <a href="#" @click.prevent="signOut">Logout</a>
   </div>
 </template>
 
@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     signOut() {
-      this.$store.dispatch("saveWorkspaceAndSignout", this.currentDate);
+      this.$userSession.signUserOut(window.location.href);
     },
     redirectUserToLandingPage() {
       window.location = `/`;
