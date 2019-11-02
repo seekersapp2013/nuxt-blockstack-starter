@@ -7,24 +7,21 @@
 </template>
 
 <script>
-import * as blockstack from "blockstack";
 import { mapGetters } from "vuex";
 
 export default {
   name: "app-page",
   data: () => {
-    return {
-      blockstack: blockstack
-    };
+    return {};
   },
   beforeMount() {
-    if (!this.blockstack.isUserSignedIn()) {
+    if (!this.$userSession.isUserSignedIn()) {
       this.redirectUserToLandingPage();
     } else {
-      this.userData = this.blockstack.loadUserData();
-      this.user = new this.blockstack.Person(this.userData.profile);
+      this.userData = this.$userSession.loadUserData();
       this.username = this.userData.username;
-      this.$store.commit("SET_USERSESSION", userSession);
+      this.$store.commit("SET_USERSESSION", this.$userSession);
+      console.log(this.username);
     }
   },
   methods: {
