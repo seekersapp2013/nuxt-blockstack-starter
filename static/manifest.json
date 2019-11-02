@@ -1,12 +1,18 @@
 {
-  "name": "Starter App",
-  "start_url": "http://localhost:3000",
-  "description": "A simple nuxt-starter app build on blockstack",
+  "manifest_version": 2,
+  "name": "NuxtBlockstack",
+  "version": "1.0",
+  "description": "A nuxt blockstack starter",
+  "short_name": "nuxtblockstack",
   "icons": [
     {
-      "src": "https://nuxtjs.org/logos/nuxt-emoji@2x.png",
-      "sizes": "400x400",
+      "src": "http://localhost:3000/icon.png",
+      "sizes": "192x192",
       "type": "image/png"
     }
-  ]
+  ],
+  "start_url": "http://localhost:3000",
+  "background_color": "#3367D6",
+  "display": "standalone",
+  "theme_color": "#3367D6"
 }

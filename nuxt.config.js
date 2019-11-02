@@ -28,6 +28,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '@/plugins/blockstack',
   ],
   /*
   ** Nuxt.js dev-modules
@@ -42,6 +43,9 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
   ],
+  router: {
+    middleware: ['auth']
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
@@ -57,5 +61,11 @@ module.exports = {
     */
     extend(config, ctx) {
     }
+  },
+  /*
+  ** Nuxt generate command configuration
+  */
+  generate: {
+    fallback: false
   }
 }

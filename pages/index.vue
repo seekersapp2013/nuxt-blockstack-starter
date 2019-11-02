@@ -5,27 +5,21 @@
 </template>
 
 <script>
-import * as blockstack from "blockstack";
-import { mapGetters, mapState } from "vuex";
+import { mapGetters } from "vuex";
 export default {
   name: "landing",
-  data: () => {
-    return {
-      blockstack: blockstack
-    };
-  },
   beforeMount() {
-    if (this.blockstack.isUserSignedIn()) {
+    if (this.$userSession.isUserSignedIn()) {
       this.redirectLoggedInUser();
-    } else if (blockstack.isSignInPending()) {
-      blockstack.handlePendingSignIn().then(userData => {
+    } else if (this.$userSession.isSignInPending()) {
+      this.$userSession.handlePendingSignIn().then(userData => {
         this.redirectLoggedInUser();
       });
     }
   },
   methods: {
     signIn() {
-      this.blockstack.redirectToSignIn();
+      this.$userSession.redirectToSignIn();
     },
     redirectLoggedInUser() {
       window.location = `/app`;
