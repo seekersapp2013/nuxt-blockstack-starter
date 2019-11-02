@@ -1,13 +1,13 @@
 
 export const state = () => ({
-  userSession: null,
+  blockstackUserSession: null,
 })
 
 export const mutations = {
 
   // BLOCKSTACK USER
   SET_USER(state, userSession) {
-    state.userSession = userSession || null
+    state.blockstackUserSession = userSession || null
   },
 
 }

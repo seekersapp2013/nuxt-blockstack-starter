@@ -20,12 +20,11 @@ export default {
   beforeMount() {
     if (!this.blockstack.isUserSignedIn()) {
       this.redirectUserToLandingPage();
-    }
-    this.userData = this.blockstack.loadUserData();
-    this.user = new this.blockstack.Person(this.userData.profile);
-    this.username = this.userData.username;
-    if (this.$store.state.appData.length === 0) {
-      this.$store.dispatch("loadDataFromGaia");
+    } else {
+      this.userData = this.blockstack.loadUserData();
+      this.user = new this.blockstack.Person(this.userData.profile);
+      this.username = this.userData.username;
+      this.$store.commit("SET_USER", userSession);
     }
   },
   methods: {
