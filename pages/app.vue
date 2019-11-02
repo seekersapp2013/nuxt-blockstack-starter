@@ -24,7 +24,7 @@ export default {
       this.userData = this.blockstack.loadUserData();
       this.user = new this.blockstack.Person(this.userData.profile);
       this.username = this.userData.username;
-      this.$store.commit("SET_USER", userSession);
+      this.$store.commit("SET_USERSESSION", userSession);
     }
   },
   methods: {
